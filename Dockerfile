@@ -1,7 +1,11 @@
-FROM openshift/python:3.6
-COPY . /app
+FROM registry.access.redhat.com/ubi7/python-36
+
 WORKDIR /app
-RUN pip install -r requirements.txt
+COPY . /app
+
+RUN pip3 --no-cache-dir install -r requirements.txt
+
 EXPOSE 5000
-USER 1001
-CMD python ./index.py
+
+ENTRYPOINT ["python3"]
+CMD ["helloworld.py"]
