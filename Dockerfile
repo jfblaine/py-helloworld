@@ -1,4 +1,4 @@
-FROM aio.home.io:5000/ntlsrepo/openshift/python:3.6
+FROM openshift/python:3.6
 COPY . /app
 WORKDIR /app
 RUN pip install -r requirements.txt
