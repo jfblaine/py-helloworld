@@ -1,13 +1,13 @@
-# demo/__init__.py
 from flask import Flask 
 
-def create_app():
-    app = Flask(__name__)
+app = Flask(__name__)
 
-    app.config.from_pyfile('settings.py')
+app.config.from_pyfile('settings.py')
 
-    @app.route('/')
-    def index():
-        return f'Hello, world from hostname: { app.config.get("HOSTNAME") }' 
+@app.route('/')
+def main():
+    return f'Hello, world from hostname: { app.config.get("HOSTNAME") }' 
 
-    return app
+if __name__ == '__main__':  # Script executed directly?
+    print("Hello World! Built with a Docker file.")
+    app.run(host="0.0.0.0", port=5000, debug=True,use_reloader=True)
