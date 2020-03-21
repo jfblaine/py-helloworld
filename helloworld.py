@@ -1,22 +1,13 @@
-'''
-@author: jblaine
-'''
+# demo/__init__.py
+from flask import Flask 
 
-# -*- coding: UTF-8 -*-
-"""
-py-helloworld
-"""
-from os import environ
-from flask import Flask  # From module flask import class Flask
-app = Flask(__name__)    # Construct an instance of Flask class for our webapp
+def create_app():
+    app = Flask(__name__)
 
-app.config['HOSTNAME'] = os.environ.get('HOSTNAME')
+    app.config.from_pyfile('settings.py')
 
-@app.route('/')   # URL '/' to be handled by main() route handler
-def main():
-    """Say hello"""
-    return 'Hello, world from hostname: ' + app.config['HOSTNAME']
+    @app.route('/')
+    def index():
+        return f'Hello, world from hostname: { app.config.get("HOSTNAME") }' 
 
-if __name__ == '__main__':  # Script executed directly?
-    print("Hello World! Built with a Docker file.")
-    app.run(host="0.0.0.0", port=5000, debug=True,use_reloader=True)  # Launch built-in web server and run this Flask webapp
+    return app
