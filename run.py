@@ -6,7 +6,7 @@ app.config.from_pyfile('settings.py')
 
 @app.route('/')
 def main():
-    return f'Hello, world from hostname: { app.config.get("HOSTNAME") }\nRunning in namespace: { app.config.get("NAMESPACE") }' 
+    return f'Hello, world from hostname: { app.config.get("HOSTNAME") }\nRunning in namespace: { app.config.get("NAMESPACE") }\n' 
 
 if __name__ == '__main__':  # Script executed directly?
     print("Hello World! Built with a Docker file.")
