@@ -1,5 +1,5 @@
-# FROM aio.home.io:5000/ntlsrepo/ubi7/python-36:1-63.1584463519
-FROM registry.access.redhat.com/ubi7/python-36:1-63.1584463519
+FROM aio.home.io:5000/ntlsrepo/ubi7-python-36:1-63.1584463519
+# FROM registry.access.redhat.com/ubi7/python-36:1-63.1584463519
 
 WORKDIR /app
 COPY . /app
