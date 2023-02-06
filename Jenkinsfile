@@ -11,6 +11,13 @@ pipeline {
                 }
             }
          }
+        stage('Build') { 
+            steps { 
+                script{
+                 app = docker.build("underwater")
+                }
+            }
+        }
          stage('Sleep') {
             steps {
                 sleep(120)
