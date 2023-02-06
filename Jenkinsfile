@@ -22,7 +22,13 @@ pipeline {
         }
         stage('Test'){
             steps {
-                 echo 'Empty'
+                 echo 'Test Stage Completed'
+            }
+        }
+          stage('Sleep'){
+            steps {
+                 sleep(120)
+                 echo 'Done Sleeping'
             }
         }
         stage('Deploy') {
